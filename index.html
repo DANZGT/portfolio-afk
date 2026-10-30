@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website portofolio pribadi mahasiswa Informatika.">
+  <title>Portfolio | Achmad Fardhan Khafid</title>
+  <style>
+    :root {
+      --bg: #090b10; --panel: #11151e; --panel2: #171d29; --text: #f4f6fb;
+      --muted: #9ba6b8; --line: rgba(255,255,255,.10); --accent: #8ea7ff;
+      --accent2: #b5c5ff; --shadow: 0 20px 60px rgba(0,0,0,.28);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(1100px, calc(100% - 40px)); margin: auto; }
+    header { position: fixed; z-index: 20; top: 16px; left: 0; right: 0; }
+    nav { width: min(1000px, calc(100% - 32px)); margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 11px 16px; border: 1px solid var(--line); border-radius: 50px; background: rgba(16,19,27,.86); backdrop-filter: blur(18px); box-shadow: var(--shadow); }
+    .brand { display: flex; align-items: center; gap: 10px; font-size: .82rem; font-weight: 800; letter-spacing: .04em; white-space: nowrap; }
+    .brand-mark { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--text); color: #10131a; font-weight: 900; }
+    .nav-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: .78rem; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-actions { display: flex; gap: 8px; align-items: center; }
+    .icon-btn, .hire-btn { border: 1px solid var(--line); cursor: pointer; border-radius: 30px; padding: 9px 13px; color: var(--text); background: var(--panel2); font-size: .75rem; }
+    .hire-btn { background: var(--text); color: #11141b; font-weight: 800; padding-inline: 18px; }
+    .hero { min-height: 100vh; display: grid; place-items: center; padding: 140px 0 80px; position: relative; overflow: hidden; }
+    .hero:before { content: "PORTFOLIO"; position: absolute; font-size: clamp(5rem, 17vw, 14rem); font-weight: 900; letter-spacing: -.09em; color: rgba(255,255,255,.025); white-space: nowrap; pointer-events: none; }
+    .hero-inner { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items: center; width: min(1000px, calc(100% - 40px)); }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .22em; font-size: .68rem; font-weight: 800; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.6rem); line-height: .98; letter-spacing: -.065em; margin: 18px 0; }
+    h1 span { color: var(--accent); }
+    .hero-copy { color: var(--muted); max-width: 530px; font-size: 1rem; }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 19px; border-radius: 30px; border: 1px solid var(--line); font-size: .82rem; font-weight: 750; transition: .2s; }
+    .btn.primary { background: var(--text); color: #10131a; }
+    .btn:hover { transform: translateY(-3px); }
+    .portrait-wrap { display: grid; place-items: center; }
+    .portrait { width: min(330px, 78vw); aspect-ratio: 4/5; border-radius: 42% 42% 24px 24px; border: 1px solid var(--line); background: radial-gradient(circle at 50% 25%, #34415e, #171e2c 55%, #10141d); display: grid; place-items: center; box-shadow: var(--shadow); overflow: hidden; position: relative; }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; display: none; }
+    .portrait .initials { font-size: 6rem; font-weight: 900; color: rgba(255,255,255,.85); letter-spacing: -.08em; }
+    .portrait small { position: absolute; bottom: 18px; color: #c2cce0; font-size: .68rem; letter-spacing: .14em; }
+    section { padding: 100px 0; border-top: 1px solid rgba(255,255,255,.045); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 34px; }
+    .section-head h2 { font-size: clamp(2rem, 4vw, 3.3rem); letter-spacing: -.055em; line-height: 1.05; margin-top: 10px; }
+    .section-head p { color: var(--muted); max-width: 390px; font-size: .88rem; }
+    .grid { display: grid; gap: 16px; }
+    .projects { grid-template-columns: repeat(3, 1fr); }
+    .project, .skill-card, .info-card, .achievement, .contact-card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; transition: .25s; }
+    .project:hover, .skill-card:hover, .achievement:hover { transform: translateY(-5px); border-color: rgba(142,167,255,.45); }
+    .project-art { height: 175px; display: grid; place-items: center; background: linear-gradient(135deg, #26334c, #121721); color: var(--accent2); font-size: 2.4rem; font-weight: 900; }
+    .project:nth-child(2) .project-art { background: linear-gradient(135deg, #34304c, #171521); }
+    .project:nth-child(3) .project-art { background: linear-gradient(135deg, #24413e, #111b1b); }
+    .project-body { padding: 20px; }
+    .project-body h3, .skill-card h3, .achievement h3 { font-size: 1rem; margin-bottom: 7px; }
+    .project-body p, .skill-card p, .achievement p { color: var(--muted); font-size: .8rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 15px; }
+    .tag { border: 1px solid var(--line); color: #c5cee0; padding: 4px 9px; border-radius: 20px; font-size: .65rem; }
+    .skills-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 30px; align-items: start; }
+    .skill-intro { color: var(--muted); max-width: 360px; }
+    .skills { grid-template-columns: repeat(2, 1fr); }
+    .skill-card { padding: 23px; }
+    .skill-number { color: var(--accent); font-size: .72rem; font-weight: 800; letter-spacing: .12em; margin-bottom: 20px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .about-text { color: var(--muted); font-size: .92rem; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 25px 0; }
+    .stat { padding: 15px; border: 1px solid var(--line); border-radius: 13px; background: var(--panel); }
+    .stat strong { display: block; font-size: 1.5rem; }
+    .stat span { color: var(--muted); font-size: .68rem; }
+    .info-card { padding: 24px; }
+    .info-row { display: flex; justify-content: space-between; gap: 15px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: .83rem; }
+    .info-row:last-child { border: 0; }
+    .info-row span:first-child { color: var(--muted); }
+    .achievements { grid-template-columns: repeat(2, 1fr); }
+    .achievement { padding: 24px; }
+    .achievement .year { color: var(--accent); font-size: .72rem; font-weight: 800; letter-spacing: .12em; margin-bottom: 15px; }
+    .contact-wrap { display: grid; grid-template-columns: 1fr .85fr; gap: 35px; align-items: center; }
+    .contact-title { font-size: clamp(2.8rem, 7vw, 5.7rem); line-height: .9; letter-spacing: -.07em; margin: 18px 0; }
+    .contact-copy { color: var(--muted); max-width: 440px; }
+    .contact-list { display: grid; gap: 10px; }
+    .contact-card { padding: 17px 19px; display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+    .contact-card small { color: var(--muted); display: block; font-size: .65rem; text-transform: uppercase; letter-spacing: .12em; }
+    .contact-card strong { font-size: .83rem; overflow-wrap: anywhere; }
+    .contact-card b { color: var(--accent); font-size: 1.1rem; }
+    footer { border-top: 1px solid var(--line); padding: 24px 0; color: var(--muted); font-size: .72rem; }
+    footer .container { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    .light { --bg: #f3f5fa; --panel: #fff; --panel2: #e8ecf5; --text: #151a25; --muted: #626d80; --line: rgba(20,30,50,.13); --accent: #4e68bd; --accent2: #dce4ff; }
+    .light nav { background: rgba(255,255,255,.88); }
+    .light .hero:before { color: rgba(0,0,0,.035); }
+    .light .portrait { background: radial-gradient(circle at 50% 25%, #aab8d8, #e0e6f3 60%, #cdd5e5); }
+    .light .portrait .initials { color: #35415b; }
+    .light .portrait small { color: #46536d; }
+    .light .project-art { color: #dce4ff; }
+    .light .tag { color: #46536d; }
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+      .hero-inner, .skills-layout, .about-grid, .contact-wrap { grid-template-columns: 1fr; }
+      .hero-inner { gap: 35px; text-align: center; }
+      .hero-copy { margin: auto; }
+      .hero-buttons { justify-content: center; }
+      .portrait { width: 230px; }
+      section { padding: 75px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 14px; }
+      .projects { grid-template-columns: 1fr; }
+      .project-art { height: 150px; }
+      .skills { grid-template-columns: 1fr 1fr; }
+      .achievements { grid-template-columns: 1fr; }
+      .contact-wrap { gap: 25px; }
+    }
+    @media (max-width: 420px) {
+      .brand { font-size: .68rem; }
+      .nav-actions .hire-btn { padding: 8px 11px; }
+      .icon-btn { padding: 8px 10px; }
+      .skills { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr 1fr 1fr; }
+      .stat { padding: 11px 8px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav aria-label="Navigasi utama">
+    <a class="brand" href="#home"><span class="brand-mark">A</span><span>ACHMAD FARDHAN KHAFID</span></a>
+    <div class="nav-links">
+      <a href="#work">Work</a><a href="#skills">What I Can Do</a><a href="#about">About</a><a href="#achievement">Achievement</a>
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Ubah tema">☼</button>
+      <a class="hire-btn" href="#contact">Hire Me ↗</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Mahasiswa Informatika · Portfolio</p>
+        <h1>Halo, saya<br><span>ACHMAD FARDHAN KHAFID.</span></h1>
+        <p class="hero-copy">Saya adalah mahasiswa Pendidikan Teknologi Informasi yang memiliki ketertarikan pada dunia IT sekaligus bidang kreatif. Saya seorang ambivert yang nyaman bekerja mandiri maupun berkolaborasi. Saya juga menyukai desain grafis, editing, animasi, 3D modeling, game, dan musik.</p>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#work">Lihat Karya Saya ↗</a>
+          <a class="btn" href="#about">Kenali Saya</a>
+        </div>
+      </div>
+      <div class="portrait-wrap">
+        <div class="portrait">
+          <!-- Ganti avatar ini dengan foto: letakkan file foto bernama profile.jpg di folder yang sama,
+               lalu hapus style="display:none" pada tag img di bawah. -->
+          <img src="profile.jpg" alt="Foto profil Nama Kamu" style="display:none">
+          <span class="initials">AFK</span>
+          <small>CREATIVE · CURIOUS · LEARNER</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="container">
+      <div class="section-head">
+        <div><p class="eyebrow">Selected work</p><h2>Work Gallery</h2></div>
+        <p>Kumpulan proyek, latihan, dan karya yang saya buat selama proses belajar. Ganti contoh ini dengan proyek milikmu.</p>
+      </div>
+      <div class="grid projects">
+        <article class="project"><div class="project-art">01</div><div class="project-body"><h3>Website Portofolio</h3><p>Website pribadi untuk memperkenalkan profil, kemampuan, dan karya saya.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></div></article>
+        <article class="project"><div class="project-art">02</div><div class="project-body"><h3>Database Rumah Sakit</h3><p>Perancangan basis data dengan tabel, relasi, serta query SQL untuk mengelola data rumah sakit.</p><div class="tags"><span class="tag">MariaDB</span><span class="tag">SQL</span><span class="tag">ERD</span></div></div></article>
+        <article class="project"><div class="project-art">03</div><div class="project-body"><h3>Proyek Berikutnya</h3><p>Tambahkan deskripsi singkat proyek lain yang pernah kamu kerjakan di sini.</p><div class="tags"><span class="tag">Coming soon</span><span class="tag">Project</span></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container skills-layout">
+      <div><p class="eyebrow">My capabilities</p><h2 style="font-size:clamp(2.2rem,5vw,3.8rem);letter-spacing:-.06em;line-height:1.02;margin:12px 0 20px">What I<br>Can Do</h2><p class="skill-intro">Bidang yang saya pelajari, minati, dan ingin terus kembangkan. Beberapa di antaranya merupakan minat kreatif yang sedang saya eksplorasi.</p></div>
+      <div class="grid skills">
+        <article class="skill-card"><div class="skill-number">01 / DEVELOPMENT</div><h3>Web Development</h3><p>Membuat struktur dan tampilan website sederhana.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript dasar</span></div></article>
+        <article class="skill-card"><div class="skill-number">02 / DATABASE</div><h3>Database</h3><p>Merancang tabel, relasi, dan mengelola data.</p><div class="tags"><span class="tag">MySQL</span><span class="tag">MariaDB</span><span class="tag">SQL</span></div></article>
+        <article class="skill-card"><div class="skill-number">03 / PROGRAMMING</div><h3>Programming</h3><p>Memahami logika dan dasar pemrograman.</p><div class="tags"><span class="tag">Python dasar</span><span class="tag">Problem solving</span></div></article>
+        <article class="skill-card"><div class="skill-number">04 / TOOLS</div><h3>Tools & Productivity</h3><p>Menggunakan perangkat pendukung pembelajaran dan pengembangan.</p><div class="tags"><span class="tag">VS Code</span><span class="tag">GitHub</span><span class="tag">AI Tools</span></div></article>
+        <article class="skill-card"><div class="skill-number">05 / CREATIVE</div><h3>Graphic Design & Editing</h3><p>Memiliki minat pada pembuatan desain visual serta proses editing konten kreatif.</p><div class="tags"><span class="tag">Graphic Design</span><span class="tag">Photo Editing</span><span class="tag">Video Editing</span></div></article>
+        <article class="skill-card"><div class="skill-number">06 / 3D & ANIMATION</div><h3>3D Modeling & Animation</h3><p>Tertarik mengeksplorasi software modeling dan membuat karya animasi.</p><div class="tags"><span class="tag">3D Modeling</span><span class="tag">Animation</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head"><div><p class="eyebrow">A little about me</p><h2>About Me</h2></div><p>Mengenal lebih dekat latar belakang, pendidikan, dan aktivitas saya saat ini.</p></div>
+      <div class="about-grid">
+        <div>
+          <h3 style="font-size:1.45rem;letter-spacing:-.03em;margin-bottom:12px">Pembelajar yang tertarik pada teknologi.</h3>
+          <p class="about-text">Perkenalkan, saya <strong>Achmad Fardhan Khafid</strong>, mahasiswa Program Studi <strong>Pendidikan Teknologi Informasi</strong> di Universitas Negeri Surabaya (UNESA). Saya memiliki kepribadian ambivert, sehingga nyaman mengerjakan sesuatu secara mandiri maupun bersama orang lain. Selain tertarik pada teknologi informasi, saya juga menyukai dunia desain grafis dan editing, serta animasi dan pembuatan animasi menggunakan software 3D modeling. Di waktu luang, saya menikmati bermain game dan mendengarkan musik. Saya senang mengeksplorasi hal baru dan menggabungkan kreativitas dengan teknologi.</p>
+          <div class="stats"><div class="stat"><strong>01+</strong><span>Years Learning</span></div><div class="stat"><strong>03+</strong><span>Projects</span></div><div class="stat"><strong>∞</strong><span>Curiosity</span></div></div>
+        </div>
+        <div class="info-card">
+          <div class="info-row"><span>Nama</span><strong>Achmad Fardhan Khafid</strong></div>
+          <div class="info-row"><span>NIM</span><strong>26050974155</strong></div>
+          <div class="info-row"><span>Program Studi</span><strong>Pendidikan Teknologi Informasi</strong></div>
+          <div class="info-row"><span>Perguruan Tinggi</span><strong>Universitas Negeri Surabaya (UNESA)</strong></div>
+          <div class="info-row"><span>Pendidikan saat ini</span><strong>UNESA – Pendidikan Teknologi Informasi</strong></div>
+          <div class="info-row"><span>Pendidikan sebelumnya</span><strong>SMKN 1 Purwosari – TKJ</strong></div>
+          <div class="info-row"><span>Aktivitas</span><strong>Belajar teknologi informasi</strong></div>
+          <div class="info-row"><span>Kepribadian</span><strong>Ambivert</strong></div>
+          <div class="info-row"><span>Minat</span><strong>IT, desain, animasi, game & musik</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievement">
+    <div class="container">
+      <div class="section-head"><div><p class="eyebrow">Milestones</p><h2>Achievement</h2></div><p>Pencapaian, sertifikat, pengalaman, atau kegiatan yang menunjukkan proses perkembangan diri.</p></div>
+      <div class="grid achievements">
+        <article class="achievement"><div class="year">2026 · AKADEMIK</div><h3>Mahasiswa Informatika</h3><p>Memulai perjalanan pendidikan dan pengembangan kemampuan di bidang Informatika. Tambahkan nama institusi atau bukti jika tersedia.</p></article>
+        <article class="achievement"><div class="year">TAHUN · SERTIFIKAT / KEGIATAN</div><h3>Nama Pencapaian Kamu</h3><p>Tuliskan nama penyelenggara, deskripsi singkat pencapaian, dan dokumentasi atau tautan bukti jika ada.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container contact-wrap">
+      <div><p class="eyebrow">Get in touch</p><h2 class="contact-title">LET'S WORK<br>TOGETHER.</h2><p class="contact-copy">Terima kasih telah mengunjungi portofolio saya. Saya terbuka untuk berdiskusi, belajar bersama, dan berkolaborasi dalam proyek menarik.</p><div style="margin-top:24px"><a class="btn primary" href="mailto:emailkamu@example.com">Kirim Email ↗</a></div></div>
+      <div class="contact-list">
+        <a class="contact-card" href="mailto:emailkamu@example.com"><span><small>Email</small><strong>emailkamu@example.com</strong></span><b>↗</b></a>
+        <a class="contact-card" href="https://github.com/" target="_blank" rel="noopener"><span><small>GitHub</small><strong>github.com/username</strong></span><b>↗</b></a>
+        <a class="contact-card" href="https://www.linkedin.com/" target="_blank" rel="noopener"><span><small>LinkedIn</small><strong>linkedin.com/in/username</strong></span><b>↗</b></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="container"><span>© <span id="year"></span> Achmad Fardhan Khafid. All rights reserved.</span><span>Designed & built with curiosity.</span></div></footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const toggle = document.getElementById('themeToggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    toggle.textContent = document.body.classList.contains('light') ? '☾' : '☼';
+  });
+  const profileImage = document.querySelector('.portrait img');
+  profileImage.addEventListener('load', () => {
+    profileImage.style.display = 'block';
+    document.querySelector('.portrait .initials').style.display = 'none';
+  });
+  profileImage.addEventListener('error', () => {
+    profileImage.style.display = 'none';
+  });
+</script>
+</body>
+</html>
