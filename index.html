@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Website portofolio pribadi mahasiswa Informatika.">
+  <meta name="description" content="Website portofolio Achmad Fardhan Khafid, mahasiswa Pendidikan Teknologi Informasi.">
   <title>Portfolio | Achmad Fardhan Khafid</title>
   <style>
     :root {
@@ -50,9 +50,10 @@
     .projects { grid-template-columns: repeat(3, 1fr); }
     .project, .skill-card, .info-card, .achievement, .contact-card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; transition: .25s; }
     .project:hover, .skill-card:hover, .achievement:hover { transform: translateY(-5px); border-color: rgba(142,167,255,.45); }
-    .project-art { height: 175px; display: grid; place-items: center; background: linear-gradient(135deg, #26334c, #121721); color: var(--accent2); font-size: 2.4rem; font-weight: 900; }
-    .project:nth-child(2) .project-art { background: linear-gradient(135deg, #34304c, #171521); }
-    .project:nth-child(3) .project-art { background: linear-gradient(135deg, #24413e, #111b1b); }
+    .project-art { height: 190px; display: block; overflow: hidden; background: linear-gradient(135deg, #26334c, #121721); color: var(--accent2); font-size: 2.4rem; font-weight: 900; }
+    .project-art img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .45s ease; }
+    .project:hover .project-art img { transform: scale(1.06); }
+    
     .project-body { padding: 20px; }
     .project-body h3, .skill-card h3, .achievement h3 { font-size: 1rem; margin-bottom: 7px; }
     .project-body p, .skill-card p, .achievement p { color: var(--muted); font-size: .8rem; }
@@ -105,7 +106,7 @@
       .section-head { display: block; }
       .section-head p { margin-top: 14px; }
       .projects { grid-template-columns: 1fr; }
-      .project-art { height: 150px; }
+      .project-art { height: 190px; }
       .skills { grid-template-columns: 1fr 1fr; }
       .achievements { grid-template-columns: 1fr; }
       .contact-wrap { gap: 25px; }
@@ -138,19 +139,20 @@
   <section class="hero" id="home">
     <div class="hero-inner">
       <div>
-        <p class="eyebrow">Mahasiswa Informatika · Portfolio</p>
+        <p class="eyebrow">Mahasiswa Pendidikan Teknologi Informasi · Portfolio</p>
         <h1>Halo, saya<br><span>ACHMAD FARDHAN KHAFID.</span></h1>
         <p class="hero-copy">Saya adalah mahasiswa Pendidikan Teknologi Informasi yang memiliki ketertarikan pada dunia IT sekaligus bidang kreatif. Saya seorang ambivert yang nyaman bekerja mandiri maupun berkolaborasi. Saya juga menyukai desain grafis, editing, animasi, 3D modeling, game, dan musik.</p>
         <div class="hero-buttons">
           <a class="btn primary" href="#work">Lihat Karya Saya ↗</a>
           <a class="btn" href="#about">Kenali Saya</a>
+          <a class="btn" href="cv-achmad-fardhan.pdf" download>Download CV ↓</a>
         </div>
       </div>
       <div class="portrait-wrap">
         <div class="portrait">
           <!-- Ganti avatar ini dengan foto: letakkan file foto bernama profile.jpg di folder yang sama,
                lalu hapus style="display:none" pada tag img di bawah. -->
-          <img src="profile.jpg" alt="Foto profil Nama Kamu" style="display:none">
+          <img src="profile.jpg" alt="Foto profil Nama Kamu" >
           <span class="initials">AFK</span>
           <small>CREATIVE · CURIOUS · LEARNER</small>
         </div>
@@ -162,12 +164,15 @@
     <div class="container">
       <div class="section-head">
         <div><p class="eyebrow">Selected work</p><h2>Work Gallery</h2></div>
-        <p>Kumpulan proyek, latihan, dan karya yang saya buat selama proses belajar. Ganti contoh ini dengan proyek milikmu.</p>
+        <p>Beberapa karya dan bidang kreatif yang saya minati, mulai dari pengembangan web hingga eksplorasi visual dan multimedia.</p>
       </div>
       <div class="grid projects">
-        <article class="project"><div class="project-art">01</div><div class="project-body"><h3>Website Portofolio</h3><p>Website pribadi untuk memperkenalkan profil, kemampuan, dan karya saya.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></div></article>
-        <article class="project"><div class="project-art">02</div><div class="project-body"><h3>Database Rumah Sakit</h3><p>Perancangan basis data dengan tabel, relasi, serta query SQL untuk mengelola data rumah sakit.</p><div class="tags"><span class="tag">MariaDB</span><span class="tag">SQL</span><span class="tag">ERD</span></div></div></article>
-        <article class="project"><div class="project-art">03</div><div class="project-body"><h3>Proyek Berikutnya</h3><p>Tambahkan deskripsi singkat proyek lain yang pernah kamu kerjakan di sini.</p><div class="tags"><span class="tag">Coming soon</span><span class="tag">Project</span></div></div></article>
+        <article class="project"><div class="project-art"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=85" alt="Laptop menampilkan kode pemrograman"></div><div class="project-body"><h3>Web Development</h3><p>Eksplorasi pembuatan website dan antarmuka digital menggunakan teknologi web.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></div></article>
+        <article class="project"><div class="project-art"><img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=900&q=85" alt="Perangkat dan karya desain grafis"></div><div class="project-body"><h3>Graphic Design</h3><p>Eksplorasi komposisi visual, tipografi, dan desain grafis untuk kebutuhan kreatif.</p><div class="tags"><span class="tag">Graphic Design</span><span class="tag">Visual</span></div></div></article>
+        <article class="project"><div class="project-art"><img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=85" alt="Tampilan proses editing video"></div><div class="project-body"><h3>Photo & Video Editing</h3><p>Minat pada pengolahan foto, penyuntingan video, dan pembuatan konten multimedia.</p><div class="tags"><span class="tag">Photo Editing</span><span class="tag">Video Editing</span></div></div></article>
+        <article class="project"><div class="project-art"><img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=900&q=85" alt="Karya seni digital tiga dimensi abstrak"></div><div class="project-body"><h3>3D Modeling & Animation</h3><p>Eksplorasi bentuk, objek tiga dimensi, dan animasi digital.</p><div class="tags"><span class="tag">3D Modeling</span><span class="tag">Animation</span></div></div></article>
+        <article class="project"><div class="project-art"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=85" alt="Perangkat gaming dengan pencahayaan"></div><div class="project-body"><h3>Gaming</h3><p>Ketertarikan pada dunia game, pengalaman interaktif, dan perkembangan teknologi gaming.</p><div class="tags"><span class="tag">Game</span><span class="tag">Interactive</span></div></div></article>
+        <article class="project"><div class="project-art"><img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=900&q=85" alt="Peralatan musik dan audio"></div><div class="project-body"><h3>Music & Audio</h3><p>Musik sebagai sumber inspirasi dan bagian dari aktivitas sehari-hari.</p><div class="tags"><span class="tag">Music</span><span class="tag">Audio</span></div></div></article>
       </div>
     </div>
   </section>
@@ -188,7 +193,7 @@
 
   <section id="about">
     <div class="container">
-      <div class="section-head"><div><p class="eyebrow">A little about me</p><h2>About Me</h2></div><p>Mengenal lebih dekat latar belakang, pendidikan, dan aktivitas saya saat ini.</p></div>
+      <div class="section-head"><div><p class="eyebrow">A little about me</p><h2>About Me</h2></div><p>Mengenal lebih dekat profil, minat, dan aktivitas saya saat ini.</p></div>
       <div class="about-grid">
         <div>
           <h3 style="font-size:1.45rem;letter-spacing:-.03em;margin-bottom:12px">Pembelajar yang tertarik pada teknologi.</h3>
@@ -200,8 +205,7 @@
           <div class="info-row"><span>NIM</span><strong>26050974155</strong></div>
           <div class="info-row"><span>Program Studi</span><strong>Pendidikan Teknologi Informasi</strong></div>
           <div class="info-row"><span>Perguruan Tinggi</span><strong>Universitas Negeri Surabaya (UNESA)</strong></div>
-          <div class="info-row"><span>Pendidikan saat ini</span><strong>UNESA – Pendidikan Teknologi Informasi</strong></div>
-          <div class="info-row"><span>Pendidikan sebelumnya</span><strong>SMKN 1 Purwosari – TKJ</strong></div>
+          <div class="info-row"><span>Status</span><strong>Mahasiswa aktif</strong></div>
           <div class="info-row"><span>Aktivitas</span><strong>Belajar teknologi informasi</strong></div>
           <div class="info-row"><span>Kepribadian</span><strong>Ambivert</strong></div>
           <div class="info-row"><span>Minat</span><strong>IT, desain, animasi, game & musik</strong></div>
@@ -222,11 +226,11 @@
 
   <section id="contact">
     <div class="container contact-wrap">
-      <div><p class="eyebrow">Get in touch</p><h2 class="contact-title">LET'S WORK<br>TOGETHER.</h2><p class="contact-copy">Terima kasih telah mengunjungi portofolio saya. Saya terbuka untuk berdiskusi, belajar bersama, dan berkolaborasi dalam proyek menarik.</p><div style="margin-top:24px"><a class="btn primary" href="mailto:emailkamu@example.com">Kirim Email ↗</a></div></div>
+      <div><p class="eyebrow">Get in touch</p><h2 class="contact-title">LET'S WORK<br>TOGETHER.</h2><p class="contact-copy">Terima kasih telah mengunjungi portofolio saya. Saya terbuka untuk berdiskusi, belajar bersama, dan berkolaborasi dalam proyek menarik.</p><div style="margin-top:24px"><a class="btn primary" href="mailto:fdanzd@gmail.com">Kirim Email ↗</a></div></div>
       <div class="contact-list">
-        <a class="contact-card" href="mailto:emailkamu@example.com"><span><small>Email</small><strong>emailkamu@example.com</strong></span><b>↗</b></a>
-        <a class="contact-card" href="https://github.com/" target="_blank" rel="noopener"><span><small>GitHub</small><strong>github.com/username</strong></span><b>↗</b></a>
-        <a class="contact-card" href="https://www.linkedin.com/" target="_blank" rel="noopener"><span><small>LinkedIn</small><strong>linkedin.com/in/username</strong></span><b>↗</b></a>
+        <a class="contact-card" href="mailto:fdanzd@gmail.com"><span><small>Email</small><strong>fdanzd@gmail.com</strong></span><b>↗</b></a>
+        <a class="contact-card" href="https://github.com/DANZGT" target="_blank" rel="noopener"><span><small>GitHub</small><strong>github.com/DANZGT</strong></span><b>↗</b></a>
+        <a class="contact-card" href="https://www.linkedin.com/in/elfarless" target="_blank" rel="noopener"><span><small>LinkedIn</small><strong>linkedin.com/in/elfarless</strong></span><b>↗</b></a>
       </div>
     </div>
   </section>
